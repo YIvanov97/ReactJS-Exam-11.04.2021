@@ -1,0 +1,52 @@
+.article--Container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 60%;
+  height: 350px;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 100px;
+  border-radius: 20px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  background: url("./images/penti.png");
+  background-size: 500px 500px;
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-color: #E0EEFF;
+}
+
+.article--Container .article--Info {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  opacity: 0.8;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.article--Container .article--Info .article--Title {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+  margin-bottom: 40px;
+}
+
+.article--Container .article--Info .article--DescriptionTitle {
+  margin: 0;
+  font-family: 'SF-UI-Display-Thin';
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.article--Container .article--Info .article--Description {
+  margin-top: 5px;
+  font-family: 'SF-UI-Display-Medium';
+  font-size: 20px;
+}
+
+.article--Container .article--Image {
+  height: 300px;
+  border-radius: 10px;
+}
