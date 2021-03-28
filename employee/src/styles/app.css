@@ -1,0 +1,81 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App .employee--Title {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 70px;
+  font-family: 'SF-UI-Display-Bold';
+  left: 100px;
+  border-radius: 20px;
+  padding: 10px;
+  top: 0;
+  color: #00406D;
+  position: absolute;
+  box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+}
+
+.App .addProduct--Title {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Light';
+  color: #CEEFFF;
+  margin-top: 150px;
+}
+
+.App .createProduct--form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  padding: 40px;
+  border-radius: 20px;
+  background-color: #33BDFF;
+}
+
+.App .createProduct--form input {
+  width: 100%;
+  margin-top: 20px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'SF-UI-Display-Light';
+}
+
+.App .createProduct--form input:focus {
+  outline: none;
+}
+
+.App .createProduct--form .create--button {
+  width: 60%;
+  margin-top: 40px;
+  font-family: 'SF-UI-Display-Medium';
+  transition: all 0.3s ease 0s;
+  letter-spacing: 2.5px;
+}
+
+.App .createProduct--form .create--button:hover {
+  font-family: 'SF-UI-Display-Bold';
+  cursor: pointer;
+  background-color: #0EFF9F;
+  transform: translateY(-7px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.App .added--Products {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #CEEFFF;
+  justify-content: space-around;
+}
+
+.App .added--Products td {
+  border: 1px solid black;
+}
