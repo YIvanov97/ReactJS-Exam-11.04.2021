@@ -65,17 +65,58 @@
             }
         }
     }
+
+    .load--Products{
+        margin-top: 30px;
+        border: none;
+        border-radius: 10px;
+        font-family: 'SF-UI-Display-Light';
+        font-size: 20px;
+        background-color: #CEEFFF;
+        padding: 10px;
+        transition: all 0.3s ease 0s;
+
+        &:hover {
+            background-color: #FFE16D;
+            cursor: pointer;
+            transform: translateX(5px 5px);
+            letter-spacing: 2.5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
     
     .added--Products {
-        display: flex;
-        flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         background-color: #CEEFFF;
         justify-content: space-around;
+        border-collapse: collapse;
+        margin-bottom: 30px;
+        border-radius: 10px;
+        border-style: hidden;
+        box-shadow: 0 0 0 1px #666;
+        margin-top: 30px;
 
-        td {
+        tr, th {
             border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+            font-family: 'SF-UI-Display-Light';
+        }
+
+        tr, td {
+            border: 1px solid black;
+            text-align: left;
+            padding: 8px;
+            font-family: 'SF-UI-Display-Bold';
+        }
+
+        tr:nth-child(2) {
+                background-color: #0EFF9F;
         }
     }
 }

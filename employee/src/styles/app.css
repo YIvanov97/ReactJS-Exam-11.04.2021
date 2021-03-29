@@ -67,15 +67,56 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.App .added--Products {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+.App .load--Products {
+  margin-top: 30px;
+  border: none;
+  border-radius: 10px;
+  font-family: 'SF-UI-Display-Light';
+  font-size: 20px;
   background-color: #CEEFFF;
-  justify-content: space-around;
+  padding: 10px;
+  transition: all 0.3s ease 0s;
 }
 
-.App .added--Products td {
+.App .load--Products:hover {
+  background-color: #FFE16D;
+  cursor: pointer;
+  transform: translateX(5px 5px);
+  letter-spacing: 2.5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.App .load--Products:focus {
+  outline: none;
+}
+
+.App .added--Products {
+  align-items: center;
+  justify-content: space-around;
+  background-color: #CEEFFF;
+  justify-content: space-around;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border-style: hidden;
+  box-shadow: 0 0 0 1px #666;
+  margin-top: 30px;
+}
+
+.App .added--Products tr, .App .added--Products th {
   border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  font-family: 'SF-UI-Display-Light';
+}
+
+.App .added--Products tr, .App .added--Products td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.App .added--Products tr:nth-child(2) {
+  background-color: #0EFF9F;
 }
