@@ -59,8 +59,10 @@ class Login extends React.Component {
             return;
         }
 
-        fetch('http://localhost:5000/auth/login',{
+        fetch('/auth/login',{
             method: 'POST',
+            credentials: 'include',
+            withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
               },

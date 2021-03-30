@@ -70,8 +70,10 @@ class Register extends React.Component {
             return;
         }
 
-        fetch('http://localhost:5000/auth/register', {
+        fetch('/auth/register', {
             method: 'POST',
+            credentials: 'include',
+            withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
             },

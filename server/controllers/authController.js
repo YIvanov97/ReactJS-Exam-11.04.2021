@@ -27,4 +27,10 @@ router.post('/register', async (req, res) => {
     }
 })
 
+router.get('/user', async (req, res) => {
+    if(req.user) {
+        return res.status(200).json(req.user) 
+    }
+})
+
 module.exports = router;

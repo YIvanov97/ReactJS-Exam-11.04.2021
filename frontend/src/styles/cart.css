@@ -1,0 +1,92 @@
+.cart--Container {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.emptyCart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'SF-UI-Display-Bold';
+  font-size: 40px;
+  color: #CEEFFF;
+  margin: 100% auto;
+}
+
+.product--Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 700px;
+  height: 270px;
+  margin: 30px;
+  border-radius: 10px;
+  background-color: #E0EEFF;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.product--Container .product--AboutContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.product--Container .product--AboutContainer .product--Info {
+  display: flex;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.product--Container .product--AboutContainer .product--Info h1 {
+  margin: 0;
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.product--Container .product--AboutContainer .product--Info .description--Title {
+  font-size: 15;
+  font-family: 'SF-UI-Display-Light';
+}
+
+.product--Container .product--AboutContainer .product--Info p {
+  margin: 0;
+  font-size: 20px;
+  font-family: 'SF-UI-Display-Medium';
+}
+
+.product--Container .product--AboutContainer img {
+  height: 180px;
+  margin-right: 10px;
+}
+
+.totalPrice--Container {
+  display: block;
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #E0EEFF;
+  box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.totalPrice--Container .totalPrice--Title {
+  font-family: 'SF-UI-Display-Medium';
+  margin: 0;
+  color: #5B5B5B;
+}
+
+.totalPrice--Container .total--Price {
+  font-family: 'SF-UI-Display-Bold';
+  font-size: 30px;
+  color: #03E62E;
+  margin: 0;
+}
