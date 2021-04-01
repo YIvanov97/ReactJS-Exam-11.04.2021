@@ -22,7 +22,6 @@
         border-radius: 20px;
         background-color: #33BDFF;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-        margin-bottom: 5.5%;
 
         input {
             width: 100%;
@@ -51,5 +50,35 @@
                 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             }
         }
-    }    
+    }
+
+    .goToLogin--Container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+
+        h3{
+            font-family: 'SF-UI-Display-Light';
+            font-size: 20px;
+            color: #CEEFFF;
+        }
+
+        button{
+            font-family: 'SF-UI-Display-Medium';
+            border-radius: 10px;
+            font-size: 18px;
+            background-color: #E0EEFF;
+            border: none;
+            padding: 5px 10px 5px 10px;
+            transition: all 0.3s ease 0s;
+
+            &:hover{
+                transform: translateX(5px 5px);
+                background-color: #FFD200;
+                cursor: pointer;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            }
+        }
+    }
 }

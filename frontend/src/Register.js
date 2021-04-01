@@ -2,6 +2,7 @@ import React from 'react'
 import './styles/register.scss';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {API} from './globalParams'
 
 class Register extends React.Component {
     constructor(props) {
@@ -50,6 +51,21 @@ class Register extends React.Component {
         progress: undefined,
         });
 
+    getUserData() {
+        fetch(`${API}/auth/user`, {
+            method: 'GET',
+            withCredentials: true,
+            credentials: 'include'
+        })
+        .then (response => response.json())
+        .then (response => {
+            localStorage.setItem('email', JSON.stringify(response))
+        })
+        .catch (error => {
+            console.error (error);
+        });
+    }
+
     handleRegister(e) {
         e.preventDefault()
 
@@ -70,7 +86,7 @@ class Register extends React.Component {
             return;
         }
 
-        fetch('/auth/register', {
+        fetch(`${API}/auth/register`, {
             method: 'POST',
             credentials: 'include',
             withCredentials: true,
@@ -82,9 +98,11 @@ class Register extends React.Component {
         .then(response => {
             if (response.status === 201) {
                 this.onSuccess()
+                this.getUserData()
                 setTimeout(() => {
                     window.location = '/'
                 }, 1000)
+                sessionStorage.setItem('email', JSON.stringify(response))
             }
         })
             .catch(error => error.response)
@@ -117,6 +135,10 @@ class Register extends React.Component {
                     <input type="password" placeholder="Password" onChange={this.handlePassword} value={this.state.password}/>
                     <input className="register--button" type="submit" value="Register"/>
                 </form>
+                <div className="goToLogin--Container">
+                    <h3>Already have account ?</h3>
+                    <button onClick={() => this.props.history.push('/auth/login')}>Go to Login</button>
+                </div>
                 <ToastContainer />
             </div>     
         )

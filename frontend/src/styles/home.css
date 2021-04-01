@@ -5,6 +5,33 @@
   flex-direction: column;
 }
 
+.loggedInUser--Container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 20px;
+  margin-right: 50px;
+  margin-top: 20px;
+  width: 18%;
+  border: none;
+  background-color: #ffffff8c;
+  justify-content: space-around;
+  box-shadow: white 0px -2px 8px inset;
+}
+
+.loggedInUser--Container h3 {
+  font-family: 'SF-UI-Display-Bold';
+  font-size: 20px;
+}
+
+.loggedInUser--Container p {
+  font-family: 'SF-UI-Display-Medium';
+  font-size: 20px;
+}
+
 .home--Header {
   display: flex;
   flex-direction: column;
@@ -14,10 +41,10 @@
   font-family: 'SF-UI-Display-Light';
   font-size: 70px;
   margin: 0;
-  color: #9BD9FF;
+  color: #FFFF;
   margin-top: 100px;
   margin-bottom: 50px;
-  width: 35%;
+  width: 50%;
   height: 110px;
   box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import './styles/login.scss'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {API} from './globalParams'
 
 class Login extends React.Component {
     constructor(props) {
@@ -46,6 +47,21 @@ class Login extends React.Component {
         progress: undefined,
         });
 
+    getUserData() {
+        fetch(`${API}/auth/user`, {
+            method: 'GET',
+            withCredentials: true,
+            credentials: 'include'
+        })
+        .then (response => response.json())
+        .then (response => {
+            localStorage.setItem('user', JSON.stringify(response))
+        })
+        .catch (error => {
+            console.error (error);
+        });
+    }
+
     handleLogin(e){
         e.preventDefault();
 
@@ -59,17 +75,18 @@ class Login extends React.Component {
             return;
         }
 
-        fetch('/auth/login',{
+        fetch(`${API}/auth/login`,{
             method: 'POST',
             credentials: 'include',
             withCredentials: true,
             headers: {
                 'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(login)
+            },
+            body: JSON.stringify(login)
         }).then((response) => {
                 if(response.status === 200) {
                     this.onSuccess()
+                    this.getUserData()
                     setTimeout(() => {
                         window.location = '/'
                     }, 1000)

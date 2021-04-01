@@ -1,11 +1,13 @@
 import React from 'react';
 import './styles/home.scss';
+import {user, API} from './globalParams'
 
 class Home extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
       products: [],
+      user: user
     };
     this.getProducts = this.getProducts.bind (this);
   }
@@ -15,8 +17,10 @@ class Home extends React.Component {
   }
 
   getProducts () {
-    fetch ('http://localhost:5000/products/', {
+    fetch (`${API}/products/`, {
       method: 'GET',
+      credentials: 'include',
+      withCredentials: true,
     })
       .then (response => response.json ())
       .then (response => {
@@ -31,7 +35,15 @@ class Home extends React.Component {
   render () {
     return (
       <div className="home--Container">
-        <h1 className="home--Header">X - Technology</h1>
+        <div className="loggedInUser--Container">
+        {!this.state.user ? <></> :
+          <>
+            <h3>Welcome:</h3>
+            <p>{this.state.user.email}</p>
+          </>
+        }
+        </div>
+        <h1 className="home--Header">NeWmaN Technology</h1>
         <div>
           {this.state.products.map (product => {
             return (
