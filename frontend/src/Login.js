@@ -2,7 +2,7 @@ import React from 'react'
 import './styles/login.scss'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {API} from './globalParams'
+import UserContext, {API} from './globalParams'
 
 class Login extends React.Component {
     constructor(props) {
@@ -16,6 +16,8 @@ class Login extends React.Component {
         this.handlePassword = this.handlePassword.bind(this)
         this.handleLogin = this.handleLogin.bind(this)
     }
+
+    static contextType = UserContext
 
     onSuccess = () => toast.success('Login successfuly!', {
         position: "top-center",
@@ -83,20 +85,24 @@ class Login extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(login)
-        }).then((response) => {
-                if(response.status === 200) {
-                    this.onSuccess()
-                    this.getUserData()
-                    setTimeout(() => {
-                        window.location = '/'
-                    }, 1000)
-                } else if (response.status === 401) {
-                    this.onError()
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+         })
+         .then((response) => {
+             console.log(response)
+            const authToken = response.headers.get('Authorization')
+            document.cookie = `x-auth-token=${authToken}`
+                 if(response.status === 200 && authToken) {
+                     this.onSuccess()
+                     this.getUserData()
+                     setTimeout(() => {
+                         window.location = '/'
+                     }, 1000)
+                 } else if (response.status === 401) {
+                     this.onError()
+                 }
+             })
+             .catch((error) => {
+                 console.log(error)
+             })
     }
 
     handleEmail(e) {

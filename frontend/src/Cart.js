@@ -25,6 +25,8 @@ class Cart extends React.Component {
                               <div className="product--Description">
                                   <p className="description--Title">Description:</p>
                                   <p>{product.description}</p>
+                                  <h3>Price:</h3>
+                                  <p>{product.price}$</p>
                               </div>
                           </div>
                           <img src={product.imageUrl} alt="product--Img"/>
@@ -34,10 +36,12 @@ class Cart extends React.Component {
                     );
                 })}
                 </div>
+                {this.state.products.length === 0 ? <></> :
                 <div className="totalPrice--Container">
                     <h2 className="totalPrice--Title">Total Price:</h2>
                     <p className="total--Price">{this.state.total}$</p>
                 </div>
+                }
             </div>
         ) 
     }

@@ -3,6 +3,7 @@ import './styles/app.scss';
 import React from 'react';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ArticlesData from './Article'
 
 class App extends React.Component {
   constructor (props) {
@@ -134,15 +135,6 @@ getProducts () {
   }
 
   render () {
-      let tableData = this.state.products.map(product => {
-        return (   
-            <tr>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>{product.price}$</td>
-            </tr>
-        )
-      }).reverse()
     return (
       <div className="App">
         <h1 className="employee--Title">Employee</h1>
@@ -186,7 +178,7 @@ getProducts () {
                   <th>Description</th>
                   <th>Price</th>
               </tr>
-              {tableData}
+              <ArticlesData products={this.state.products} />
             </table>
         </div>
         <ToastContainer />

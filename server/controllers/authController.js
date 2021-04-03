@@ -9,6 +9,7 @@ router.post('/login', async (req, res) => {
 
     try {
         let token = await authService.login({email, password})
+        res.header('Authorization', token)
         res.cookie(COOKIE_NAME, token)
         res.status(200).json(token)
     } catch (error) {
@@ -21,6 +22,9 @@ router.post('/register', async (req, res) => {
     
     try {
         let user = await authService.register({name, username, email, password})
+        // .then(() => {
+        //     res.header('Authorization', token)
+        // })
         res.status(201).json(user)
     } catch (error) {
         res.status(401).json({ error: error })
@@ -31,6 +35,10 @@ router.get('/user', async (req, res) => {
     if(req.user) {
         return res.status(200).json(req.user) 
     }
+})
+
+router.get('/logout', (req, res) => {
+    res.clearCookie(COOKIE_NAME)
 })
 
 module.exports = router;

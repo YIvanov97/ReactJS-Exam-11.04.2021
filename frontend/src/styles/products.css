@@ -1,7 +1,6 @@
 .product--Screen {
   display: flex;
   flex-direction: column;
-  background: url("./images/cool-backgroundHome.png");
   margin: 0;
   padding-top: 30px;
   align-items: center;
@@ -50,6 +49,12 @@
   font-family: 'SF-UI-Display-Medium';
 }
 
+.product--Container .product--AboutContainer .product--Info .price--Title {
+  font-size: 15;
+  font-family: 'SF-UI-Display-Light';
+  margin-top: 15px;
+}
+
 .product--Container .product--AboutContainer img {
   height: 180px;
   margin-right: 10px;
@@ -66,7 +71,7 @@
 .product--Container .product--Buttons .about--Button {
   padding: 15px;
   border-radius: 10px;
-  background-color: #F2E700;
+  background-color: #FFD200;
   border: none;
   font-family: 'SF-UI-Display-Medium';
   font-size: 20px;

@@ -2,8 +2,9 @@ import React from 'react';
 import './styles/products.scss'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {API} from './globalParams'
 
-export let productParams = '1';
+export let productParams = '';
 export let buyedProducts = []
 
 class Products extends React.Component {
@@ -30,8 +31,10 @@ class Products extends React.Component {
   });
 
   getProducts () {
-    fetch ('http://localhost:5000/products/', {
+    fetch (`${API}/products/`, {
       method: 'GET',
+      credentials: 'include',
+      withCredentials: true,
     })
       .then (response => response.json())
       .then (response => {
@@ -53,16 +56,18 @@ class Products extends React.Component {
               <div className="product--AboutContainer">
                 <div className="product--Info">
                   <h1>{product.name}</h1>
-                    <div className="product--Description">
-                        <p className="description--Title">Description:</p>
-                        <p>{product.description}</p>
+                    <div className="product--Price">
+                      <p className="price--Title">Price:</p>
+                      <p>{product.price}$</p>
                     </div>
                 </div>
                 <img src={product.imageUrl} alt="product--Img"/>
               </div>
               <div className="product--Buttons">
-                  <button className="about--Button" onClick={() => {productParams = product; this.props.history.push(`/details/:${product._id}`)}}>More Info</button>
-                  <button className="buy--Button" onClick={() => {buyedProducts.push(product); this.onBuy()}}>Buy</button>
+                  
+                    <button className="about--Button" onClick={() => {productParams = product; this.props.history.push(`/details/:${product._id}`)}}>More Info</button>
+                    <button className="buy--Button" onClick={() => {buyedProducts.push(product); this.onBuy()}}>Buy</button>
+                  
               </div>
             </div>
           );

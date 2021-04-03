@@ -62,7 +62,7 @@ class Register extends React.Component {
             localStorage.setItem('email', JSON.stringify(response))
         })
         .catch (error => {
-            console.error (error);
+            console.log(error);
         });
     }
 
@@ -95,17 +95,18 @@ class Register extends React.Component {
             },
             body: JSON.stringify(registered)
         })
-        .then(response => {
+        .then((response) => {
+            const authToken = response.headers.get('Authorization')
+            document.cookie = `x-auth-token=${authToken}`
             if (response.status === 201) {
                 this.onSuccess()
                 this.getUserData()
                 setTimeout(() => {
-                    window.location = '/'
+                    window.location = '/auth/login'
                 }, 1000)
-                sessionStorage.setItem('email', JSON.stringify(response))
             }
         })
-            .catch(error => error.response)
+        .catch(error => console.log(error.response))
     }
 
     handleName(e){

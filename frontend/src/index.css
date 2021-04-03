@@ -1,14 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    background: url('./styles/images/cool-background.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-    position: absolute;
-    width: 100%;
-
 }
 
 @font-face {

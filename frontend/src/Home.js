@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles/home.scss';
-import {user, API} from './globalParams'
+import UserContext, {user, API} from './globalParams'
+import ScrollMenu from 'react-horizontal-scrolling-menu';
 
 class Home extends React.Component {
   constructor (props) {
@@ -11,6 +12,7 @@ class Home extends React.Component {
     };
     this.getProducts = this.getProducts.bind (this);
   }
+  
 
   componentDidMount () {
     this.getProducts ();
@@ -24,7 +26,6 @@ class Home extends React.Component {
     })
       .then (response => response.json ())
       .then (response => {
-        console.log (response);
         this.setState ({products: response});
       })
       .catch (error => {
@@ -33,6 +34,20 @@ class Home extends React.Component {
   }
 
   render () {
+    const data = this.state.products.map(product => {
+      return (
+        <div className="products--Container">
+            <div className="products--Info">
+              <h1>{product.name}</h1>
+              <div className="products--Description">
+                <p className="description--Title">Description:</p>
+                <p>{product.description}</p>
+              </div>
+            </div>
+            <img className="products--Image" src={product.imageUrl} alt="products--Img" />
+        </div>
+      );
+    })
     return (
       <div className="home--Container">
         <div className="loggedInUser--Container">
@@ -43,24 +58,36 @@ class Home extends React.Component {
           </>
         }
         </div>
-        <h1 className="home--Header">NeWmaN Technology</h1>
-        <div>
-          {this.state.products.map (product => {
-            return (
-              <div className="product--Container">
-                <div className="product--AboutContainer">
-                  <div className="product--Info">
-                    <h1>{product.name}</h1>
-                    <div className="product--Description">
-                      <p className="description--Title">Description:</p>
-                      <p>{product.description}</p>
+        <h1 className="home--Header">NeWaN Technology</h1>
+        <div className="homeProducts--Container">
+          <ScrollMenu 
+            dragging={true}
+            wheel={false}
+            transition={0.4}
+            translate={'5px'}
+            wrapperStyle={{overflow: 'hidden', userSelect: 'none'}}
+            itemStyle={{outline: 'none'}}
+            data={this.state.products.map(product => {
+              return (
+                <div className="products--Container">
+                    <div className="products--Info">
+                      <h1>{product.name}</h1>
+                      <div className="products--Description">
+                        <p className="description--Title">Description:</p>
+                        <p>{product.description}</p>
+                      </div>
                     </div>
-                  </div>
-                  <img src={product.imageUrl} alt="product--Img" />
+                    <img className="products--Image" src={product.imageUrl} alt="products--Img" />
+                    <div className="product--Price">
+                      <p className="price--Title">Price:</p>
+                      <p>{product.price}$</p>
+                    </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}/>
+        </div>
+        <div className="companyDescription--Container">
+            
         </div>
       </div>
     );
