@@ -31,7 +31,7 @@ const login = async ({email, password}) => {
         }
         
         let token = jwt.sign({ _id: user.id, email: user.email}, SECRET)
-        
+
         return token;
 }
 

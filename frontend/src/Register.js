@@ -96,8 +96,6 @@ class Register extends React.Component {
             body: JSON.stringify(registered)
         })
         .then((response) => {
-            const authToken = response.headers.get('Authorization')
-            document.cookie = `x-auth-token=${authToken}`
             if (response.status === 201) {
                 this.onSuccess()
                 this.getUserData()

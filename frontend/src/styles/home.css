@@ -55,6 +55,26 @@
   right: 0;
 }
 
+.companyDescription--Container {
+  width: 90%;
+  background-color: #E0EEFF;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.companyDescription--Container h2 {
+  margin: 30px;
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.companyDescription--Container p {
+  margin: 30px;
+  font-size: 20px;
+  font-family: 'SF-UI-Display-Light';
+}
+
 .products--Container {
   display: flex;
   flex-direction: column;

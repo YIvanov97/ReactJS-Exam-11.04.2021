@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/products.scss'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {API} from './globalParams'
+import {user, API} from './globalParams'
 
 export let productParams = '';
 export let buyedProducts = []
@@ -50,6 +50,9 @@ class Products extends React.Component {
   render () {
     return (
       <div className="product--Screen">
+        {this.state.products.lenght === 0 ? <div className="noAvailable">No available products!</div>
+        :
+        <>
         {this.state.products.map(product => {
           return (
             <div className="product--Container">
@@ -64,14 +67,21 @@ class Products extends React.Component {
                 <img src={product.imageUrl} alt="product--Img"/>
               </div>
               <div className="product--Buttons">
-                  
+                  {!user ? 
+                  <button className="about--Button" onClick={() => {productParams = product; this.props.history.push(`/details/:${product._id}`)}}>More Info</button> 
+                  :
+                  <>
                     <button className="about--Button" onClick={() => {productParams = product; this.props.history.push(`/details/:${product._id}`)}}>More Info</button>
                     <button className="buy--Button" onClick={() => {buyedProducts.push(product); this.onBuy()}}>Buy</button>
+                  </>
+                  }
                   
               </div>
             </div>
           );
         })}
+        </>
+        }
         <ToastContainer />
       </div>
     );

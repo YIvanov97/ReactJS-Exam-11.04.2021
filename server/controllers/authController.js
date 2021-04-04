@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
         res.header('Authorization', token)
         res.cookie(COOKIE_NAME, token)
         res.status(200).json(token)
-    } catch (error) {
+        } catch (error) {
         res.status(401).json({ error: error })
     }
 })

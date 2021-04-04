@@ -86,11 +86,8 @@ class Login extends React.Component {
             },
             body: JSON.stringify(login)
          })
-         .then((response) => {
-             console.log(response)
-            const authToken = response.headers.get('Authorization')
-            document.cookie = `x-auth-token=${authToken}`
-                 if(response.status === 200 && authToken) {
+         .then(response => {
+                 if(response.status === 200) {
                      this.onSuccess()
                      this.getUserData()
                      setTimeout(() => {
