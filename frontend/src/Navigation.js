@@ -20,6 +20,9 @@ function Navigation() {
               {!user ?
               <>
               <li>
+                <Link className="link" to="/contacts">Contacts</Link>
+              </li>
+              <li>
                 <Link className="link" to="/auth/register">Register</Link>
               </li>
               <li>
@@ -35,11 +38,13 @@ function Navigation() {
                 <Link className="link" to="/cart">Cart</Link>
               </li>
               <li>
+                <Link className="link" to="/contacts">Contacts</Link>
+              </li>
+              <li>
                 <Link className="link" to="/auth/logout">Logout</Link>
               </li>
               </>
               }
-              
             </ul>
         </div>
     )

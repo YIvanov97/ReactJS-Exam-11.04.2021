@@ -24,8 +24,12 @@ router.get('/details/:id', async (req, res) => {
 })
 
 router.post('/:id/delete', (req, res) => {
-    productService.deleteOne(req.params.productId)
-    res.status(200)
+    try {
+        productService.deleteOne(req.params.id)
+        res.status(200)
+    } catch (error) {
+        res.status(400)
+    }
 })
 
 module.exports = router;

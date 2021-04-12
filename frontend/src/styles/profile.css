@@ -1,6 +1,72 @@
-.user--name {
+.profile--Container {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  background-color: white;
+  margin: 7% auto;
+  justify-content: space-around;
+  padding: 20px;
+  width: 700px;
+  background-color: #E0EEFF;
+  border-radius: 20px;
+}
+
+.profile--Picture {
+  height: 300px;
+  width: 300px;
+}
+
+.userInfo--Container {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInfo--Container .user--Name--Container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.userInfo--Container .user--Name--Container h3 {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.userInfo--Container .user--Name--Container p {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Light';
+  margin-left: 20px;
+}
+
+.userInfo--Container .user--userName--Container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.userInfo--Container .user--userName--Container h3 {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.userInfo--Container .user--userName--Container p {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Light';
+  margin-left: 20px;
+}
+
+.userInfo--Container .user--Email--Container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.userInfo--Container .user--Email--Container h3 {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.userInfo--Container .user--Email--Container p {
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Light';
+  margin-left: 20px;
 }

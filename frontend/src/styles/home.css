@@ -15,21 +15,23 @@
   border-radius: 20px;
   margin-right: 50px;
   margin-top: 20px;
-  width: 18%;
+  width: 15%;
   border: none;
   background-color: #ffffff8c;
-  justify-content: space-around;
+  justify-content: center;
   box-shadow: white 0px -2px 8px inset;
 }
 
 .loggedInUser--Container h3 {
   font-family: 'SF-UI-Display-Bold';
   font-size: 20px;
+  margin-right: 5px;
 }
 
 .loggedInUser--Container p {
   font-family: 'SF-UI-Display-Medium';
   font-size: 20px;
+  margin-left: 5px;
 }
 
 .home--Header {
@@ -50,32 +52,12 @@
 }
 
 .homeProducts--Container {
-  width: 100% auto;
+  width: 100%;
   left: 0;
   right: 0;
 }
 
-.companyDescription--Container {
-  width: 90%;
-  background-color: #E0EEFF;
-  padding: 10px;
-  border-radius: 20px;
-  margin-bottom: 30px;
-}
-
-.companyDescription--Container h2 {
-  margin: 30px;
-  font-size: 30px;
-  font-family: 'SF-UI-Display-Bold';
-}
-
-.companyDescription--Container p {
-  margin: 30px;
-  font-size: 20px;
-  font-family: 'SF-UI-Display-Light';
-}
-
-.products--Container {
+.productsHome--Container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -92,66 +74,66 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.products--Container .products--Info {
+.productsHome--Container .products--Info {
   display: flex;
   flex-direction: column;
 }
 
-.products--Container .products--Info h1 {
+.productsHome--Container .products--Info h1 {
   margin: 0;
   font-size: 30px;
   font-family: 'SF-UI-Display-Bold';
 }
 
-.products--Container .products--Info .products--Description {
+.productsHome--Container .products--Info .products--Description {
   display: none;
   transition: 0.6s;
   transform: translateZ(0);
   position: relative;
 }
 
-.products--Container .products--Info .products--Description .description--Title {
+.productsHome--Container .products--Info .products--Description .description--Title {
   font-size: 15;
   font-family: 'SF-UI-Display-Light';
 }
 
-.products--Container .products--Info .products--Description p {
+.productsHome--Container .products--Info .products--Description p {
   margin: 0;
   font-size: 20px;
   font-family: 'SF-UI-Display-Medium';
 }
 
-.products--Container .products--Info .price--Title {
+.productsHome--Container .products--Info .price--Title {
   font-size: 15;
   font-family: 'SF-UI-Display-Light';
   margin-top: 15px;
 }
 
-.products--Container .products--Image {
+.productsHome--Container .products--Image {
   height: 180px;
   margin-right: 10px;
 }
 
-.products--Container .product--Price {
+.productsHome--Container .product--Price {
   display: flex;
   flex-direction: column;
   margin: 0;
 }
 
-.products--Container .product--Price .price--Title {
+.productsHome--Container .product--Price .price--Title {
   font-size: 15;
   font-family: 'SF-UI-Display-Light';
   margin-top: 15px;
   margin: 0;
 }
 
-.products--Container .product--Price p {
+.productsHome--Container .product--Price p {
   margin: 0;
   font-size: 20px;
   font-family: 'SF-UI-Display-Medium';
 }
 
-.products--Container:before {
+.productsHome--Container:before {
   content: attr(products--Description);
   position: absolute;
   z-index: 1;
@@ -168,11 +150,11 @@
   transition: 300ms ease-out;
 }
 
-.products--Container:hover:before {
+.productsHome--Container:hover:before {
   transform: scaleY(1);
 }
 
-.products--Container:before .products--Description {
+.productsHome--Container:before .products--Description {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -184,7 +166,7 @@
   transition: 300ms ease-out;
 }
 
-.products--Container:hover .products--Description {
+.productsHome--Container:hover .products--Description {
   display: block;
   position: absolute;
   z-index: 1;
@@ -193,4 +175,25 @@
   right: 0;
   bottom: 0;
   padding: 10px;
+}
+
+.companyDescription--Container {
+  width: 90%;
+  margin-top: 30px;
+  background-color: #E0EEFF;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.companyDescription--Container h2 {
+  margin: 30px;
+  font-size: 30px;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.companyDescription--Container p {
+  margin: 30px;
+  font-size: 20px;
+  font-family: 'SF-UI-Display-Light';
 }

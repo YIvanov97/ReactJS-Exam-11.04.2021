@@ -5,16 +5,15 @@ const cors = require('cors');
 
 const corsConfig = {
   credentials: true,
-  origin: true,
-  exposedHeaders: 'Authorization'
+  origin: true
 };
 
 function setupExpress(app) {
   app.use(cors(corsConfig))
     
-  app.use (cookieParser());
+  app.use(cookieParser());
 
-  app.use (auth());
+  app.use(auth());
 }
 
 module.exports = setupExpress;

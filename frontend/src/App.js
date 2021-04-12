@@ -10,6 +10,7 @@ import Cart from './Cart'
 import Footer from './Footer'
 import Profile from './Profile'
 import Navigation from './Navigation'
+import Contacts from './Contacts'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route exact path="/auth/user" component={Profile} />
             <Route exact path="/details/:id" component={ProductSchema} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/contacts" component={Contacts} />
           </Switch>
         </div>
       </Router>

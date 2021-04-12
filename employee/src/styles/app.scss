@@ -116,7 +116,19 @@
         }
 
         tr:nth-child(2) {
-                background-color: #0EFF9F;
+            background-color: #0EFF9F;
+        }
+
+        tr td:last-child {
+            background-color: #FF5871;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
         }
     }
 }

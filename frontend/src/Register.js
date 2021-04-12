@@ -50,6 +50,16 @@ class Register extends React.Component {
         draggable: true,
         progress: undefined,
         });
+    
+    onEmailWarning = () => toast.warn('Invalid email address!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
 
     getUserData() {
         fetch(`${API}/auth/user`, {
@@ -57,12 +67,13 @@ class Register extends React.Component {
             withCredentials: true,
             credentials: 'include'
         })
-        .then (response => response.json())
+        .then(response => response.json())
         .then (response => {
-            localStorage.setItem('email', JSON.stringify(response))
+            this.context.logIn(response.user)
+            localStorage.setItem('user', JSON.stringify(response.user))
         })
         .catch (error => {
-            console.log(error);
+            console.error (error);
         });
     }
 
@@ -76,8 +87,16 @@ class Register extends React.Component {
             password: this.state.password
         }
 
+        const regex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-z]+/g
+        const match = registered.email.match(regex)
+
         if(registered.name === '' || registered.username === '' || registered.email === '' || registered.password === '') {
             this.onWarning()
+            return;
+        }
+
+        if(!match) {
+            this.onEmailWarning()
             return;
         }
 
@@ -85,6 +104,7 @@ class Register extends React.Component {
             this.onPasswordWarning()
             return;
         }
+
 
         fetch(`${API}/auth/register`, {
             method: 'POST',

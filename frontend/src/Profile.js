@@ -1,46 +1,33 @@
 import React from 'react'
 import './styles/profile.scss'
-import {API} from './globalParams'
+import {user} from './globalParams'
+import profilePicture from './styles/images/blank-profile-picture-973460_640.png'
 
 class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            user: []
+            user: user
         }
-
-        this.getUserData = this.getUserData.bind(this)
-    }
-
-    getUserData() {
-        fetch(`${API}/auth/user`, {
-            method: 'GET',
-            withCredentials: true,
-            credentials: 'include'
-        })
-        .then (response => response.json())
-        .then (response => {
-            this.setState ({
-                user: response
-            })
-            console.log(this.state.user)
-        })
-        .catch (error => {
-            console.error (error);
-        });
-    }
-
-    componentDidMount() {
-        this.getUserData()
     }
 
     render() {
-        console.log(this.state.user)
         return (
-            <div>
-                <button onClick={this.getUserData}>click</button>
-                <div className="user--name">
-                {this.state.user?.email}
+            <div className="profile--Container">
+                <img className="profile--Picture" src={profilePicture} />
+                <div className="userInfo--Container">
+                    <div className="user--Name--Container">
+                        <h3>Name: </h3>
+                        <p>{this.state.user.name}</p>
+                    </div>
+                    <div className="user--userName--Container">
+                        <h3>Username: </h3>
+                        <p>{this.state.user.username}</p>
+                    </div>
+                    <div className="user--Email--Container">
+                        <h3>Email: </h3>
+                        <p>{this.state.user.email}</p>
+                    </div>
                 </div>
             </div>
         )

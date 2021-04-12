@@ -10,7 +10,6 @@ module.exports = function() {
                     res.clearCookie(COOKIE_NAME)
                 } else {
                     req.user = decoded;
-                    isAuthenticated = true;
                 }
             })
         }

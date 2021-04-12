@@ -9,4 +9,7 @@ footer {
   position: relative;
   align-self: end;
   top: 89%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

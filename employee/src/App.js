@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './styles/app.scss';
 import React from 'react';
 import {toast, ToastContainer} from 'react-toastify';
@@ -22,6 +21,7 @@ class App extends React.Component {
     this.handleProductPrice = this.handleProductPrice.bind (this);
     this.createProduct = this.createProduct.bind (this);
     this.getProducts = this.getProducts.bind (this);
+    this.onRemove = this.onRemove.bind (this);
   }
 
   onSuccess = () =>
@@ -47,7 +47,18 @@ class App extends React.Component {
     });
 
   onError = () =>
-    toast.warn ('Something went wrong!', {
+    toast.error ('Something went wrong!', {
+      position: 'top-right',
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+
+  onRemovedProduct = () =>
+    toast.success ('Product removed!', {
       position: 'top-right',
       autoClose: 2000,
       hideProgressBar: true,
@@ -96,6 +107,7 @@ class App extends React.Component {
           this.onError ();
         }
       })
+      .then(() => this.getProducts())
       .catch (error => console.log (error.response));
   }
 
@@ -113,6 +125,12 @@ getProducts () {
         console.error (error);
       });
   }
+
+onRemove = (id) => {
+    fetch(`http://localhost:5000/products/${id}/delete`, {
+        method: 'POST'
+    }).then(() => this.getProducts())
+}
 
   componentDidMount() {
       this.getProducts();
@@ -170,7 +188,6 @@ getProducts () {
             className="create--button"
           />
         </form>
-        <button className="load--Products" onClick={this.getProducts}>Load Products</button>
         <div>
             <table className="added--Products">
               <tr>
@@ -178,7 +195,7 @@ getProducts () {
                   <th>Description</th>
                   <th>Price</th>
               </tr>
-              <ArticlesData products={this.state.products} />
+              <ArticlesData products={this.state.products} remove={this.onRemove} notify={this.onRemovedProduct}/>
             </table>
         </div>
         <ToastContainer />

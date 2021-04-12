@@ -6,7 +6,7 @@ class Authenticated extends React.Component {
         super(props)
         this.state={
             loggedIn: false,
-            user: null
+            user: {}
         }
     }
 
@@ -20,7 +20,7 @@ class Authenticated extends React.Component {
     logOut = () => {
         this.setState({
             loggedIn: false,
-            user:null
+            user:{}
         })
     }
 

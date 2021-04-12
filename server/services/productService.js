@@ -14,8 +14,8 @@ function getOne(id) {
     return Product.findById(id).lean()
 }
 
-function deleteOne(id) {
-    return Product.deleteOne({_id: id});
+async function deleteOne(id) {
+    return await Product.deleteOne({_id: id});
 }
 
 function create(data) {

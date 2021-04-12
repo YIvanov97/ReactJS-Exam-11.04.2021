@@ -1,5 +1,5 @@
 import React from 'react'
-import {productParams} from './Products';
+import {productParams} from './Products'
 import './styles/article.scss'
 
 class ProductSchema extends React.Component {

@@ -2,59 +2,68 @@ import React from 'react';
 import './styles/home.scss';
 import UserContext, {user, API} from './globalParams'
 import ScrollMenu from 'react-horizontal-scrolling-menu';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+
 
 class Home extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
       products: [],
-      user: user
+      user: user,
+      showingInfoWindow: false,  
+      activeMarker: {},         
+      selectedPlace: {}
     };
     this.getProducts = this.getProducts.bind (this);
   }
   
+  static contextType = UserContext;
 
-  componentDidMount () {
-    this.getProducts ();
-  }
-
+  
   getProducts () {
     fetch (`${API}/products/`, {
       method: 'GET',
       credentials: 'include',
       withCredentials: true,
     })
-      .then (response => response.json ())
-      .then (response => {
-        this.setState ({products: response});
-      })
-      .catch (error => {
-        console.error (error);
-      });
+    .then (response => response.json ())
+    .then (response => {
+      this.setState ({products: response});
+    })
+    .catch (error => {
+      console.error (error);
+    });
   }
+  
+  componentDidMount () {
+    this.getProducts ();
+  }
+  
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
 
   render () {
-    const data = this.state.products.map(product => {
-      return (
-        <div className="products--Container">
-            <div className="products--Info">
-              <h1>{product.name}</h1>
-              <div className="products--Description">
-                <p className="description--Title">Description:</p>
-                <p>{product.description}</p>
-              </div>
-            </div>
-            <img className="products--Image" src={product.imageUrl} alt="products--Img" />
-        </div>
-      );
-    })
     return (
       <div className="home--Container">
         <div className="loggedInUser--Container">
         {!this.state.user ? <></> :
           <>
             <h3>Welcome:</h3>
-            <p>{this.state.user.email}</p>
+            <p>{this.state.user.username}</p>
           </>
         }
         </div>
@@ -65,13 +74,14 @@ class Home extends React.Component {
           <ScrollMenu 
             dragging={true}
             wheel={false}
+            selected={1}
             transition={0.4}
             translate={'5px'}
             wrapperStyle={{overflow: 'hidden', userSelect: 'none'}}
             itemStyle={{outline: 'none'}}
             data={this.state.products.map(product => {
               return (
-                <div className="products--Container">
+                <div className="productsHome--Container">
                     <div className="products--Info">
                       <h1>{product.name}</h1>
                       <div className="products--Description">

@@ -55,9 +55,10 @@ class Login extends React.Component {
             withCredentials: true,
             credentials: 'include'
         })
-        .then (response => response.json())
+        .then(response => response.json())
         .then (response => {
-            localStorage.setItem('user', JSON.stringify(response))
+            this.context.logIn(response.user)
+            localStorage.setItem('user', JSON.stringify(response.user))
         })
         .catch (error => {
             console.error (error);
@@ -86,7 +87,7 @@ class Login extends React.Component {
             },
             body: JSON.stringify(login)
          })
-         .then(response => {
+         .then((response) => {
                  if(response.status === 200) {
                      this.onSuccess()
                      this.getUserData()

@@ -12,11 +12,15 @@ const userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        validate: /^[a-zA-Z0-9]+@[a-zA-Z0-9]+.[a-z]+$/
     },
     password: {
         type: String,
         required: true
+    },
+    cart: {
+        type: Array
     }
 })
 

@@ -4,7 +4,7 @@ import './styles/footer.scss'
 function Footer() {
     return (
         <>
-            <footer>@footer</footer>
+            <footer><small>&copy; Copyright 2017, NeWaN Technology</small></footer>
         </>
     )
 }

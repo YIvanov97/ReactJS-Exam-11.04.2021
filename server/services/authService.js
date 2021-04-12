@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 const { SALT_ROUNDS, SECRET } = require('../config/config');
 
-const register =  async ({name, username, email, password})  => {
+const register =  async ({name, username, email, password, cart})  => {
 
     let salt = await bcrypt.genSalt(SALT_ROUNDS);
     let hash = await bcrypt.hash(password, salt);
@@ -13,7 +13,8 @@ const register =  async ({name, username, email, password})  => {
         name,
         username,
         email,
-        password: hash
+        password: hash,
+        cart
     });
     return await user.save()
 }
@@ -30,7 +31,7 @@ const login = async ({email, password}) => {
             throw {message: 'Password does not match!'}
         }
         
-        let token = jwt.sign({ _id: user.id, email: user.email}, SECRET)
+        let token = jwt.sign({user}, SECRET)
 
         return token;
 }

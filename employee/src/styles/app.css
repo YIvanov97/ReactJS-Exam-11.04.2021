@@ -120,3 +120,15 @@
 .App .added--Products tr:nth-child(2) {
   background-color: #0EFF9F;
 }
+
+.App .added--Products tr td:last-child {
+  background-color: #FF5871;
+}
+
+.App .added--Products tr td:last-child:hover {
+  cursor: pointer;
+}
+
+.App .added--Products tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
